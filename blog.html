@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마포 셔츠룸 블로그 - 프록시 보안의 모든 것</title>
+  <meta name="description" content="마포 셔츠룸 블로그에서 프록시 보안 시스템의 필요성과 실제 사용 팁을 확인하세요. 24시간 운영, 개인정보 보호, 합리적인 가격을 자랑합니다.">
+  <meta name="keywords" content="마포 셔츠룸, 프록시 보안, 블로그, 보안 시스템, 마포구, 방문, 추천, 안전한, 정보">
+  <meta name="bpaas-design-system" content="brutalist-avantgarde">
+  <meta name="bpaas-design-theme" content="kr-neon-void">
+  <link rel="canonical" href="https://sf-t3-1779642675702-112.pages.dev/blog">
+  <meta property="og:title" content="마포 셔츠룸 블로그 - 프록시 보안의 모든 것">
+  <meta property="og:description" content="마포 셔츠룸 블로그에서 프록시 보안 시스템의 필요성과 실제 사용 팁을 확인하세요. 24시간 운영, 개인정보 보호, 합리적인 가격을 자랑합니다.">
+  <style>
+    /* RESET & BASE */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Courier New', 'Pretendard', monospace;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    /* TYPOGRAPHY - oversized, raw */
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #ff2d55;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 0 #000, 6px 6px 0 rgba(255,45,85,0.3);
+    }
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffaa00;
+      margin-bottom: 0.8rem;
+      border-left: 6px solid #ff2d55;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffaa00;
+      margin-bottom: 0.5rem;
+    }
+    p, li, blockquote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #ff2d55;
+      text-decoration: underline wavy 2px;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #ffaa00;
+      text-decoration: underline solid 2px;
+    }
+    /* CONTAINERS & LAYOUT - full bleed, asymmetric */
+    header, main, footer {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111;
+      padding: 0.8rem 2rem;
+      border-bottom: 3px solid #ff2d55;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    nav a:hover {
+      border-color: #ff2d55;
+      background: rgba(255,45,85,0.1);
+    }
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ff2d55;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger-menu span {
+      width: 30px;
+      height: 3px;
+      background: #ff2d55;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links li {
+      margin: 0;
+    }
+    /* CARD */
+    .card {
+      background: #1a1a1a;
+      border: 2px solid #333;
+      padding: 1.5rem;
+      border-radius: 0;
+      box-shadow: 8px 8px 0 rgba(255,45,85,0.2);
+      transition: all 0.3s;
+    }
+    .card:hover {
+      border-color: #ff2d55;
+      box-shadow: 12px 12px 0 rgba(255,45,85,0.4);
+    }
+    /* BLOG ARTICLE */
+    article {
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+    article header {
+      margin-bottom: 2rem;
+    }
+    article .meta {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      background: #ff2d55;
+      color: #000;
+      font-weight: 700;
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border: 2px solid #ff2d55;
+      transition: all 0.2s;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn:hover {
+      background: #ffaa00;
+      border-color: #ffaa00;
+      color: #000;
+    }
+    /* FOOTER */
+    footer {
+      border-top: 3px solid #ff2d55;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+      color: #888;
+    }
+    /* RESPONSIVE 768 */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
+      header, main, footer { padding: 1rem; }
+      .container { flex-direction: column; }
+      .hamburger-menu {
+        display: flex;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 250px;
+        padding: 1rem;
+        border: 2px solid #ff2d55;
+        z-index: 200;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      article {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">마포셔츠룸</div>
+    <div class="hamburger-menu" onclick="toggleMenu()" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">홈</a></li>
+      <li><a href="/about">소개</a></li>
+      <li><a href="/services">서비스</a></li>
+      <li><a href="/blog">블로그</a></li>
+      <li><a href="/contact">문의</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN BLOG -->
+  <main>
+    <article>
+      <header>
+        <h1>왜 프록시 보안이 필수인가?</h1>
+        <div class="meta">
+          <time datetime="2025-03-15">2025.03.15</time> · 마포 셔츠룸 운영팀 · 조회 1,234
+        </div>
+        <p style="font-size:1.2rem; color:#ffaa00; font-weight:600;">개인정보 보호, 더 이상 선택이 아닌 필수입니다.</p>
+      </header>
+
+      <section>
+        <p>며칠 전 친구가 전화를 했어요. "야, 마포 셔츠룸 가려는데 거기 보안 괜찮아?" 솔직히 그 질문 듣고 좀 웃겼어요. 왜냐면 우리가 프록시 보안 시스템을 도입한 지가 벌써 6개월이 넘었거든요. 근데 생각해보니, 아직도 많은 분들이 '셔츠룸 = 보안 불안'이라는 고정관념을 가지고 있더라고요.</p>
+        <p>그래서 오늘은 우리가 왜 프록시 보안 시스템에 진심인지, 그리고 그게 여러분의 방문 경험을 어떻게 바꾸는지 좀 솔직하게 얘기해볼게요.</p>
+      </section>
+
+      <section>
+        <h2>프록시 보안, 그게 뭔데?</h2>
+        <p>간단히 말하면 <strong>네트워크의 방패</strong>예요. 우리 마포 셔츠룸에 들어오시는 모든 디바이스(휴대폰, 태블릿 등)가 공용 와이파이에 연결될 때, 그 데이터가 외부로 새나가지 않도록 암호화해주는 시스템이에요. 공공장소에서 무료 와이파이 쓸 때 느끼는 그 불안함, 아시죠? 그걸 완전히 없애준 거예요.</p>
+        <p>우리는 이 시스템을 <strong>캡슐형 프록시 게이트웨이</strong>라고 부르는데, 들어오는 순간부터 나가는 순간까지 모든 트래픽을 우회시켜서 IP 추적 자체를 원천 차단해요. 덕분에 우리 손님들은 아무 걱정 없이 셔츠룸을 즐기실 수 있고요.</p>
+      </section>
+
+      <section>
+        <h2>왜 우리가 이렇게 신경 쓰나?</h2>
+        <p>사실 저도 예전에 비슷한 경험이 있었어요. 지방 출장 갔을 때 어느 셔츠룸을 갔는데, 계산할 때 카드 정보가 유출된 적이 있었거든요. 그 후로 3개월 동안 이상한 결제 문자가 계속 왔어요. 정말 짜증나고 불안했어요. </p>
+        <p>그래서 우리 마포 셔츠룸을 오픈할 때 '절대 이런 일 없게 하자'는 마음으로 보안에 가장 많은 예산을 투자했어요. 프록시 보안 시스템은 기본이고, 모든 결제는 별도의 보안망을 한 번 더 거치게 해놨어요. 돈 좀 들었지만, 손님들이 '아, 여긴 믿고 와도 되겠다'라는 생각을 하게 만드는 게 더 중요하니까요.</p>
+      </section>
+
+      <section>
+        <h2>실제로 체감되는 점</h2>
+        <p>가장 큰 차이는 <strong>속도 저하 없이 보안 유지</strong>된다는 거예요. 보통 프록시 쓰면 인터넷 느려진다고 생각하잖아요? 근데 우리 시스템은 엣지 컴퓨팅 기반이라 오히려 더 빠를 때도 있어요. 음악 스트리밍, 영상통화, 게임까지 전혀 끊김 없이 즐기실 수 있어요.</p>
+        <p>그리고 <strong>QR 체크인 시스템</strong>도 도입했어요. 방문 시마다 일회용 QR 코드를 발급받고, 입장할 때만 사용하도록 했어요. 개인정보가 시스템에 남지 않으니까 더 안심하실 수 있어요. 실제로 단골 손님들 중에도 "QR 체크인 때문에 여기만 온다"는 분들이 꽤 많아요.</p>
+        <blockquote style="border-left:4px solid #ff2d55; padding-left:1.5rem; margin:2rem 0; font-style:italic;">
+          “처음에는 보안 시스템 좋다고 해서 그런가 보다 했는데, 직접 와 보니 진짜 다르네요. 와이파이도 엄청 빠르고, 직원분들도 친절하고. 앞으로 자주 올 것 같아요.” <br>— 마포구에 사는 30대 직장인 김**님
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>자주 묻는 질문</h2>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>프록시 보안 시스템이 설치된 공간인가요?</h3>
+          <p>네. 마포 셔츠룸 전 객실과 공용 공간에 프록시 게이트웨이가 설치되어 있습니다. 방문객 누구나 별도 설정 없이 자동으로 보안 접속됩니다.</p>
+        </div>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>핸드폰만 연결되나요? 노트북도 가능한가요?</h3>
+          <p>모든 Wi-Fi 연결 기기(스마트폰, 태블릿, 노트북)가 보호됩니다. 추가 앱 설치나 복잡한 설정이 필요 없어요.</p>
+        </div>
+        <div class="card">
+          <h3>방문 시간 제한이 있나요?</h3>
+          <p>마포 셔츠룸은 24시간 운영합니다. 언제든 편하게 오셔서 프록시 보안이 적용된 안전한 공간을 즐기세요.</p>
+        </div>
+      </section>
+
+      <section style="text-align:center; margin-top:3rem;">
+        <p style="font-size:1.3rem;">보안은 기본, 편안함은 덤</p>
+        <a href="/contact" class="btn">지금 예약하기</a>
+      </section>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 마포 셔츠룸. All rights reserved.</p>
+    <p>서울 마포구 · 24시간 운영 · 프록시 보안 시스템 적용</p>
+    <p>문의: 02-123-4567</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var nav = document.querySelector('.nav-links');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

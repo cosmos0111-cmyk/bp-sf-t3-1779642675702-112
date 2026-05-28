@@ -1,214 +1,435 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>프록시 보안 리서치 및 기술 인프라 저널</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #3b82f6;
-      --muted-color: #64748b;
-      --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 | 마포 셔츠룸</title>
+    <meta name="description" content="마포 셔츠룸은 프리미엄 프록시 보안 시스템을 갖춘 안전한 공간입니다. 24시간 운영, 개인정보 보호, 합리적인 가격을 자랑합니다. 지금 전화주세요!">
+    <meta name="keywords" content="마포 셔츠룸, 프록시 보안, 마포, 셔츠룸, 보안 시스템, 마포구, 방문, 추천, 안전한">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://sf-t3-1779642675702-112.pages.dev/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="마포 셔츠룸 - 프리미엄 프록시 보안 시스템">
+    <meta property="og:description" content="마포 셔츠룸은 프리미엄 프록시 보안 시스템을 갖춘 안전한 공간입니다. 24시간 운영, 개인정보 보호, 합리적인 가격. 지금 바로 방문하세요!">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23000'/%3E%3Ctext x='50%25' y='40%25' dominant-baseline='middle' text-anchor='middle' font-family='Impact' font-size='80' fill='%23ff3b00'%3E%F0%9F%94%A5%3C/text%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Impact' font-size='50' fill='%23fff'%3E%EB%A7%88%ED%8F%AC%20%EC%85%94%EC%B8%A0%EB%A3%B8%3C/text%3E%3C/svg%3E">
+    <meta property="og:url" content="https://sf-t3-1779642675702-112.pages.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="마포 셔츠룸 - 프리미엄 프록시 보안 시스템">
+    <meta name="twitter:description" content="마포 셔츠룸은 프리미엄 프록시 보안 시스템을 갖춘 안전한 공간입니다. 지금 바로 전화주세요!">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23000'/%3E%3Ctext x='50%25' y='40%25' dominant-baseline='middle' text-anchor='middle' font-family='Impact' font-size='80' fill='%23ff3b00'%3E%F0%9F%94%A5%3C/text%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Impact' font-size='50' fill='%23fff'%3E%EB%A7%88%ED%8F%AC%20%EC%85%94%EC%B8%A0%EB%A3%B8%3C/text%3E%3C/svg%3E">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "마포 셔츠룸",
+        "description": "프리미엄 프록시 보안 시스템을 갖춘 마포 셔츠룸. 24시간 운영, 개인정보 보호.",
+        "url": "https://sf-t3-1779642675702-112.pages.dev/",
+        "telephone": "+82-10-6279-0862",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "마포구",
+            "addressRegion": "서울특별시",
+            "addressCountry": "KR"
+        },
+        "openingHours": "Mo-Su 00:00-24:00",
+        "priceRange": "₩₩"
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      color: var(--muted-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      margin-bottom: 48px;
-      font-weight: 300;
-    }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .juice-link:hover {
-      background-color: rgba(59, 130, 246, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
-    }
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-    }
-    .post-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-    }
-    footer a { color: var(--muted-color); text-decoration: none; }
-    footer a:hover { color: var(--accent-color); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
+    </script>
+    
+    <style>
+        /* RESET & BASE */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Impact, system-ui, sans-serif;
+            line-height: 1.3;
+            min-height: 100vh;
+            padding: 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+        /* TYPOGRAPHY - oversized, raw */
+        h1 {
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+            color: #ffffff;
+            text-shadow: 6px 6px 0 #ff3b00;
+            margin: 0;
+        }
+        h2 {
+            font-size: clamp(2.2rem, 8vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            border-bottom: 4px solid #ff3b00;
+            display: inline-block;
+            padding-bottom: 0.2em;
+            margin-bottom: 48px;
+        }
+        h3 {
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            font-weight: 600;
+        }
+        p, li, blockquote {
+            font-size: 1.2rem;
+            font-weight: 400;
+            max-width: 70ch;
+        }
+        a {
+            color: #ff3b00;
+            text-decoration: underline wavy 2px;
+            text-underline-offset: 6px;
+        }
+        a:hover {
+            color: #ffffff;
+            background: #ff3b00;
+            text-decoration: none;
+        }
+        /* CONTAINERS & LAYOUT - full bleed, asymmetric */
+        header, main, footer {
+            width: 100%;
+            max-width: none;
+        }
+        .container {
+            width: 100%;
+            padding: 0;
+        }
+        section {
+            margin-bottom: 120px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 48px;
+        }
+        /* STREET BRUTALIST ELEMENTS */
+        .card {
+            background: #111;
+            border: 4px solid #ff3b00;
+            padding: 48px 36px;
+            margin: 0;
+            transform: rotate(-0.5deg);
+            box-shadow: 12px 12px 0 rgba(255,59,0,0.3);
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            transform: rotate(0deg) translate(-4px, -4px);
+            box-shadow: 16px 16px 0 rgba(255,59,0,0.5);
+        }
+        .card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+        .card:nth-child(even):hover {
+            transform: rotate(0deg) translate(-4px, -4px);
+        }
+        .btn {
+            display: inline-block;
+            background: #ff3b00;
+            color: #000;
+            font-family: Impact, system-ui, sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 24px 48px;
+            border: 4px solid #fff;
+            text-decoration: none;
+            transform: skew(-5deg);
+            transition: 0.15s;
+        }
+        .btn:hover {
+            background: #000;
+            color: #ff3b00;
+            border-color: #ff3b00;
+            transform: skew(0deg) scale(1.05);
+        }
+        .badge {
+            display: inline-block;
+            background: #ff3b00;
+            color: #000;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border: 2px solid #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        /* HERO */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 120px 0 72px 0;
+            border-bottom: 8px solid #ff3b00;
+            margin-bottom: 120px;
+            position: relative;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255,59,0,0.08) 40px,
+                    rgba(255,59,0,0.08) 41px
+                );
+        }
+        .hero h1 {
+            font-size: clamp(4rem, 14vw, 8rem);
+            line-height: 0.85;
+            margin: 0 0 24px -8px;
+            max-width: 90%;
+        }
+        .hero .sub {
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            color: #ff3b00;
+            border-left: 8px solid #fff;
+            padding-left: 24px;
+            margin-left: 0;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .hero .cta-phone {
+            margin-top: 48px;
+        }
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 4px solid #ff3b00;
+            border-top: 4px solid #ff3b00;
+            margin-bottom: 48px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #000;
+            background: #ff3b00;
+            border-color: #fff;
+            text-decoration: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 8px;
+            padding: 8px;
+            background: none;
+            border: 2px solid #fff;
+        }
+        .hamburger span {
+            display: block;
+            width: 36px;
+            height: 4px;
+            background: #fff;
+        }
+        /* REVIEW CARDS */
+        .review-card {
+            background: #0a0a0a;
+            border: 4px solid #ff3b00;
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transform: skew(-1deg);
+            border-radius: 2px;
+        }
+        .review-card:nth-child(2) {
+            transform: skew(1deg) translateY(-12px);
+        }
+        .review-card:nth-child(3) {
+            transform: skew(-2deg) translateY(8px);
+        }
+        .review-card:nth-child(4) {
+            transform: skew(1deg) translateY(-4px);
+        }
+        .review-card:nth-child(5) {
+            transform: skew(-0.5deg) translateY(12px);
+        }
+        .review-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-bottom: 2px dashed #ff3b00;
+            padding-bottom: 12px;
+        }
+        .review-card .stars {
+            color: #ff3b00;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+        }
+        .review-card blockquote {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            border-left: 4px solid #fff;
+            padding-left: 16px;
+        }
+        .review-card .nick {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        /* FOOTER */
+        footer {
+            border-top: 8px solid #ff3b00;
+            padding-top: 72px;
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            font-size: 1.1rem;
+        }
+        footer .phone-big {
+            font-size: 2.4rem;
+            color: #ff3b00;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        footer .copy {
+            border-top: 2px solid #333;
+            padding-top: 24px;
+            color: #777;
+        }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            body {
+                padding: 24px;
+                gap: 32px;
+            }
+            section {
+                margin-bottom: 80px;
+            }
+            .grid, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .hero {
+                padding: 72px 0 48px 0;
+                min-height: 40vh;
+            }
+            .hero h1 {
+                font-size: clamp(3rem, 12vw, 4rem);
+                margin-left: 0;
+            }
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 32px;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #000;
+                border: 4px solid #ff3b00;
+                padding: 24px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 100;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                position: relative;
+                flex-wrap: wrap;
+            }
+            .card {
+                transform: none !important;
+                box-shadow: 8px 8px 0 rgba(255,59,0,0.3);
+            }
+            .review-card {
+                transform: none !important;
+                margin-bottom: 24px;
+            }
+            .review-card:nth-child(even) {
+                transform: none;
+            }
+            .btn {
+                padding: 18px 32px;
+                font-size: 1.2rem;
+                transform: none;
+            }
+            footer .phone-big {
+                font-size: 1.8rem;
+            }
+        }
+        /* extra brutal touches */
+        .hr-raw {
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(90deg, #ff3b00 0px, #ff3b00 20px, transparent 20px, transparent 40px);
+            border: none;
+            margin: 48px 0;
+        }
+        .emoji-big {
+            font-size: 4rem;
+            line-height: 1;
+        }
+        .list-raw {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-raw li::before {
+            content: "🔥 ";
+            color: #ff3b00;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <header>
-      <a href="/" class="logo">T3.SWISS</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="meta-tag">SWISS ACCENTED GRID SYSTEM</div>
-      <h1>프록시 보안 리서치 및 기술 인프라 저널</h1>
-      <div class="content">
-        환영합니다. 본 블로그 저널은 현대적이고 세련된 <strong>프록시 보안</strong> 분야의 실용 정보와 심도 있는 기술 에세이를 기록하는 전문 아카이브 공간입니다. 아래의 엄선된 아티클 리스트를 통해 다양한 인사이트를 확인하시기 바랍니다.
-      </div>
-      
-      
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
-          
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 일상 최적화 가이드</h3>
-          <p>바쁘게 흘러가는 도심 라이프 속에서 나만의 시간적 여유와 쾌적한 데일리 습관을 디자인하는 것은 삶의 질을 극대화하는 가장 첫 번째 과제입니다. 미니멀한 마인드와 루틴 설계는 큰 힘...</p>
-        </a>
-      
-
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 공간 미학과 정리 정돈</h3>
-          <p>가구 배치와 조명 연출 하나만으로 평범한 방을 아늑한 아지트로 변모시키는 공간 정리 팁은 내 멘탈 에너지를 가득 채워주는 보이지 않는 강력한 힘을 발휘하는 일상 속 예술입니다....</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>프록시 보안: 라이프스타일: 디지털 디톡스와 아날로그 쉼표</h3>
-          <p>끊임없이 쏟아지는 푸시 알림과 스마트폰의 피로로부터 온전히 격리된 채, 하루에 단 30분씩이라도 책을 읽거나 명상을 즐기는 아날로그 디톡스 루틴은 정신 건강을 지키는 든든한 방패입...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>라이프스타일 에디터가 강력 추천하는 마포 셔츠룸 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>라이프스타일 에디터가 강력 추천하는 마포 셔츠룸 알짜 가이드</h3>
-          <p>복잡하고 정신없이 굴러가는 하루 일상 속에서 나만의 아날로그 감성과 행복한 쉼표를 기획하는 세련된 에디터분들이라면, 삶의 질을 높여주는 오프라인 휴식 공간의 정보와 최적의 혜택을 ...</p>
-        </a>
-      
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 T3.SWISS. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
-    </footer>
-  </div>
+        <nav>
+            <div style="font-size:2rem; font-weight:900; color:#ff3b00; letter-spacing:0.1em; border:2px solid #fff; padding:8px 24px;">마포</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#reviews">리뷰</a></li>
+                <
 </body>
 </html>
