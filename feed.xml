@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title><![CDATA[마포 마포 셔츠룸]]></title>
-  <link>https://sf-t3-1779642675702-112.pages.dev</link>
-  <description><![CDATA[마포 프록시 보안 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
-  <language>ko-KR</language>
-  <pubDate>Thu, 28 May 2026 12:12:04 GMT</pubDate>
-  <lastBuildDate>Thu, 28 May 2026 12:12:04 GMT</lastBuildDate>
-  <atom:link href="https://sf-t3-1779642675702-112.pages.dev/feed.xml" rel="self" type="application/rss+xml" />
+  <title><![CDATA[프록시 보안]]></title>
+  <link>https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112</link>
+  <description><![CDATA[프록시 보안 - 마포 셔츠룸 관련 최신 소식 및 가이드]]></description>
+  <language>ko</language>
+  <pubDate>Wed, 10 Jun 2026 15:35:36 GMT</pubDate>
+  <lastBuildDate>Wed, 10 Jun 2026 15:35:36 GMT</lastBuildDate>
+  <atom:link href="https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112/feed.xml" rel="self" type="application/rss+xml" />
   
     <item>
-      <title><![CDATA[마포 마포 셔츠룸 - 공식 홈페이지 오픈 안내]]></title>
-      <link>https://sf-t3-1779642675702-112.pages.dev/</link>
-      <guid isPermaLink="true">https://sf-t3-1779642675702-112.pages.dev/</guid>
-      <description><![CDATA[마포 프록시 보안 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
-      <pubDate>Thu, 28 May 2026 12:12:04 GMT</pubDate>
+      <title><![CDATA[마포 셔츠룸 현장에서 놓치기 쉬운 포인트를 기록해봤다]]></title>
+      <link>https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112/posts/field_note-001-2x5i88.html</link>
+      <guid isPermaLink="true">https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112/posts/field_note-001-2x5i88.html</guid>
+      <description><![CDATA[### 포스트 DNA 52d6551e #### 제목: 창작한 제목 아, 진짜... 나이키 SB Dunk Low Paris의 스티치 밀도와 박스지 재질이 어떤 차이를 가져올까? #### 현장 단서내부 유출 루트로 입수된 미발매 컬러웨이. 이 정보가 얼마나 값어치 있는지를]]></description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[프록시 보안 해결 방법 총정리 — 전문가가 알려주는 5가지 팁]]></title>
+      <link>https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112/posts/guide-002-2x5i88.html</link>
+      <guid isPermaLink="true">https://cosmos0111-cmyk.github.io/bp-sf-t3-1779642675702-112/posts/guide-002-2x5i88.html</guid>
+      <description><![CDATA[아, 진짜... 파이트 클럽 영화 전체에 걸쳐 타일러 더든이 등장하기 전 싱글 프레임으로 삽입된 장면을 정리해보겠습니다. 이는 비평가들이 IMDB 3점대 작품에서 건져낸 충격적인 연출적 실험으로 분석되고 있습니다. ### 관찰 시각 #### 선택 기준 비교IMDb의 평]]></description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
     </item>
 </channel>
 </rss>
